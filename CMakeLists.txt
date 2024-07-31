@@ -19,13 +19,13 @@ enable_testing()
 
 file(GLOB SOURCES "*.cpp")
 add_executable(
-  stats_test
+  TelCoColorCoder
   ${SOURCES}
 )
 target_link_libraries(
-  stats_test
+  TelCoColorCoder
   GTest::gtest_main
 )
 
 include(GoogleTest)
-gtest_discover_tests(stats_test)
+gtest_discover_tests(TelCoColorCoder)

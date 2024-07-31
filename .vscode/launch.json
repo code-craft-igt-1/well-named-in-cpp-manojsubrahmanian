@@ -8,7 +8,7 @@
             "name": "C++ Debug",
             "type": "cppvsdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/build/Debug/stats_test.exe",
+            "program": "${workspaceFolder}/build/Debug/TelCoColorCoder.exe",
             "args": [],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}",
