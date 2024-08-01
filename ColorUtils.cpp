@@ -4,7 +4,6 @@
 
 namespace TelCoColorCoder {
 
-
     ColorPair ColorUtils::GetColorFromPairNumber(int pairNumber) {
         int zeroBasedPairNumber = pairNumber - 1;
         MajorColor majorColor = 

@@ -39,7 +39,7 @@ TEST(ColorUtilsTest, TestPairToNumber) {
     ASSERT_EQ(pairNumber2, expectedPairNumber2);
 }
 
-TEST(ColorUtilsTest, GetFormattedColorCoding) {
+TEST(ColorUtilsTest, TestFormattedColorCoding) {
     std::string formattedString = TelCoColorCoder::ColorUtils::GetFormattedColorCoding();
     
     // Check if the formatted string contains the expected first and last pairs
@@ -48,7 +48,7 @@ TEST(ColorUtilsTest, GetFormattedColorCoding) {
     
     // Optionally, check the total number of pairs
     int expectedNumberOfPairs = TelCoColorCoder::numberOfMajorColors * TelCoColorCoder::numberOfMinorColors;
-    int actualNumberOfPairs = std::count(formattedString.begin(), formattedString.end(), '\n');
+    int actualNumberOfPairs = (int)std::count(formattedString.begin(), formattedString.end(), '\n');
     ASSERT_EQ(actualNumberOfPairs, expectedNumberOfPairs);
 }
 
