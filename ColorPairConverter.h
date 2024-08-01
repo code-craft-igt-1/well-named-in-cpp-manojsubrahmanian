@@ -9,7 +9,6 @@ namespace TelCoColorCoder {
     public:
         static ColorPair GetColorFromPairNumber(int pairNumber);
         static int GetPairNumberFromColor(MajorColor major, MinorColor minor);
-        static std::string GetFormattedColorCoding();
     };
 }
 

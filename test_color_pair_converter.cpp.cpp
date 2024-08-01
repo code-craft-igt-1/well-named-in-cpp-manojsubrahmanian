@@ -4,10 +4,10 @@
 
 #include "ColorPair.h"
 #include "ColorPairConverter.h"
-
+#include "ColorCodingFormatter.h"
 #include "gtest/gtest.h"
 
-TEST(ColorUtilsTest, TestNumberToPair) {
+TEST(ColorConverterTest, TestNumberToPair) {
     // Test case 1
     int pairNumber1 = 4;
     TelCoColorCoder::MajorColor expectedMajor1 = TelCoColorCoder::WHITE;
@@ -25,7 +25,7 @@ TEST(ColorUtilsTest, TestNumberToPair) {
     ASSERT_EQ(colorPair2.getMinor(), expectedMinor2);
 }
 
-TEST(ColorUtilsTest, TestPairToNumber) {
+TEST(ColorConverterTest, TestPairToNumber) {
     // Test case 1
     TelCoColorCoder::MajorColor major1 = TelCoColorCoder::BLACK;
     TelCoColorCoder::MinorColor minor1 = TelCoColorCoder::ORANGE;
@@ -41,20 +41,3 @@ TEST(ColorUtilsTest, TestPairToNumber) {
     ASSERT_EQ(pairNumber2, expectedPairNumber2);
 }
 
-TEST(ColorUtilsTest, TestFormattedColorCoding) {
-    std::string formattedString = TelCoColorCoder::ColorPairConverter::GetFormattedColorCoding();
-    
-    // Check if the formatted string contains the expected first and last pairs
-    ASSERT_TRUE(formattedString.find("Pair Number: 1 - Major Color: White, Minor Color: Blue") != std::string::npos);
-    ASSERT_TRUE(formattedString.find("Pair Number: 25 - Major Color: Violet, Minor Color: Slate") != std::string::npos);
-    
-    // Optionally, check the total number of pairs
-    int expectedNumberOfPairs = TelCoColorCoder::numberOfMajorColors * TelCoColorCoder::numberOfMinorColors;
-    int actualNumberOfPairs = (int)std::count(formattedString.begin(), formattedString.end(), '\n');
-    ASSERT_EQ(actualNumberOfPairs, expectedNumberOfPairs);
-}
-
-int main(int argc, char** argv) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
-}
