@@ -1,5 +1,6 @@
 #include <iostream>
 #include <assert.h>
+#include <algorithm> 
 
 #include "ColorPair.h"
 #include "ColorUtils.h"
