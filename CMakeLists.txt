@@ -19,6 +19,8 @@ FetchContent_Declare(
 set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
 FetchContent_MakeAvailable(googletest)
 
+
+
 enable_testing()
 
 file(GLOB SOURCES "*.cpp")
@@ -31,6 +33,13 @@ target_link_libraries(
   GTest::gtest_main
   ${GTEST_LIBRARIES}
 )
+
+# Check the compiler and add the appropriate flags
+if (CMAKE_CXX_COMPILER_ID STREQUAL "GNU" OR CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
+    target_compile_options(TelCoColorCoder PRIVATE -Wall -Wextra -Werror)
+elseif (CMAKE_CXX_COMPILER_ID STREQUAL "MSVC")
+    target_compile_options(TelCoColorCoder PRIVATE /W4 /WX)
+endif()
 
 include(GoogleTest)
 gtest_discover_tests(TelCoColorCoder)
