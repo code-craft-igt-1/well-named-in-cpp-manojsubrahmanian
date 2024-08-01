@@ -3,6 +3,7 @@
 
 #include "ColorPair.h"
 #include "ColorUtils.h"
+
 #include "gtest/gtest.h"
 
 TEST(ColorUtilsTest, TestNumberToPair) {
