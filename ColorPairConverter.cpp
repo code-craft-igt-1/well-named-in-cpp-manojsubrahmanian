@@ -1,10 +1,10 @@
 #include <iostream>
 #include <sstream>
-#include "ColorUtils.h"
+#include "ColorPairConverter.h"
 
 namespace TelCoColorCoder {
 
-    ColorPair ColorUtils::GetColorFromPairNumber(int pairNumber) {
+    ColorPair ColorPairConverter::GetColorFromPairNumber(int pairNumber) {
         int zeroBasedPairNumber = pairNumber - 1;
         MajorColor majorColor = 
             (MajorColor)(zeroBasedPairNumber / numberOfMinorColors);
@@ -13,11 +13,11 @@ namespace TelCoColorCoder {
         return ColorPair(majorColor, minorColor);
     }
 
-    int ColorUtils::GetPairNumberFromColor(MajorColor major, MinorColor minor) {
+    int ColorPairConverter::GetPairNumberFromColor(MajorColor major, MinorColor minor) {
         return major * numberOfMinorColors + minor + 1;
     }
 
-    std::string ColorUtils::GetFormattedColorCoding() {
+    std::string ColorPairConverter::GetFormattedColorCoding() {
         std::ostringstream oss;
         int pairNumber = 1;
         for (int major = 0; major < numberOfMajorColors; ++major) {

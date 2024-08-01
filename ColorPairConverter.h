@@ -1,12 +1,11 @@
-#ifndef COLORUTILS_H
-#define COLORUTILS_H
+#ifndef COLORPAIRCONVERTER_H
+#define COLORPAIRCONVERTER_H
 
 #include "ColorPair.h"
 
 namespace TelCoColorCoder {
 
-
-    class ColorUtils {
+    class ColorPairConverter {
     public:
         static ColorPair GetColorFromPairNumber(int pairNumber);
         static int GetPairNumberFromColor(MajorColor major, MinorColor minor);
@@ -14,4 +13,4 @@ namespace TelCoColorCoder {
     };
 }
 
-#endif // COLORUTILS_H
+#endif // COLORPAIRCONVERTER_H
